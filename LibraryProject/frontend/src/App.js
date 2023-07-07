@@ -15,10 +15,11 @@ function App() {
   const callBackRoleSelector = (data) => {
     setRole(data);
   };
-  const HandleClick = () => {
-    const navigate = useNavigate();
-    navigate("/role-selector");
-  };
+  // const HandleClick = () => {
+  //   //const navigate = useNavigate();
+  //   //const navigate = useNavigate();
+
+  // };
   return (
     <div className="custom-background">
       <div className="app">
@@ -35,7 +36,7 @@ function App() {
               }
             />
             <Route
-              path="/role-selector"
+              path="/dashboard/:userName"
               element={<AccessManager role={role} />}
             />
           </Routes>

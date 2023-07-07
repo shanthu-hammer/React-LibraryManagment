@@ -3,7 +3,7 @@ import React from 'react';
 import { Nav} from 'react-bootstrap';
 import "../navBar/Navbar.css";
 function Navbar(probs) {
-  let userName = "shanthu";
+ 
   const Handleclick = (e) => {
     console.log(e.target.name);
   };
@@ -22,7 +22,7 @@ function Navbar(probs) {
             }}
             // href="/home"
           >
-            Hi, {userName}
+            Hi, {probs.appUser}
           </Nav.Link>
         </Nav.Item>
         <Nav.Item>
