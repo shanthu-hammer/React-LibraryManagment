@@ -9,17 +9,13 @@ import RoleSelector from "./Pages/roleSelecter/RoleSelector";
 import AccessManager from "./Pages/accessManager/AccessManager";
 import { Button } from "react-bootstrap";
 import "../src/App.css";
-
+ //npx json-server --watch src/database/store.json --port 5000
 function App() {
   const [role, setRole] = useState("default");
   const callBackRoleSelector = (data) => {
     setRole(data);
   };
-  // const HandleClick = () => {
-  //   //const navigate = useNavigate();
-  //   //const navigate = useNavigate();
 
-  // };
   return (
     <div className="custom-background">
       <div className="app">
