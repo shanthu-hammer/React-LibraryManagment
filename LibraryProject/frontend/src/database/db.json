@@ -1,19 +1,23 @@
-
 {
-"books": [
-
+  "books": [
     {
-        "id":0,
-        "name":"Clover",
-        "avalablity":true,
-        "lender": 1 
+      "id": 0,
+      "name": "Clover",
+      "availability": true,
+      "lender": 1
     },
     {
-        "id":1,
-        "name":"Golden",
-        "avalablity":true,
-        "lender": 1 
+      "id": 1,
+      "name": "Golden",
+      "availability": true,
+      "lender": 1
+    },
+    {
+      "id": 2,
+      "name": "Bulls",
+      "availability": false,
+      "lender": 1
     }
-]
-
+    
+  ]
 }

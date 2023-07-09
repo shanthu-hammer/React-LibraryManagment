@@ -6,7 +6,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { fetchData } from "../crud/crud";
 import BooksDataView from "../../Components/booksDataView/BooksDataView";
 const AccessManager = (probs) => {
-  const booksDefault = [
+  const initialTableData = [
     {
       id: 0,
       name: "first one ",
@@ -29,7 +29,7 @@ const AccessManager = (probs) => {
 
   const params = useParams();
   const [appUser, setAppUser] = useState("default");
-  const [booksData, setBooksData] = useState(booksDefault); //booksDefault
+  const [booksData, setBooksData] = useState(initialTableData);
 
   // const FetchBooksData = async () => {
   //   let data = await fetchData();
@@ -59,29 +59,23 @@ const AccessManager = (probs) => {
       },
     ];
     console.log("Data from button  \n" + data);
-    setBooksData(data);
-    console.log(data);
+    // setBooksData(data);
+    //console.log(data);
   };
 
   useEffect(() => {
     setAppUser(params.userName);
 
-    const Fb = async () => {
+    const FetchData = async () => {
       try {
         const result = await fetchData();
-        console.log("result from use effect " + result);
         setBooksData(result);
+        console.log("result from use effect " + result);
       } catch (error) {
         console.log(error);
       }
-      //       //console.log("im triggered");
-      //       const data = await fetchData();
-      //       console.log("Data for insert   \n" + data);
-      //       setBooksData(data);
-
-      //   console.log("value of Booksdata \n" + booksData);
     };
-    Fb();
+    FetchData();
 
     // const FetchBooksData = async () => {
     //   try {
@@ -93,7 +87,7 @@ const AccessManager = (probs) => {
     //   }
     //   FetchBooksData();
     // };
-  }, [booksData]);
+  }, []);
   //probs.role
   return (
     <>
@@ -117,7 +111,7 @@ const AccessManager = (probs) => {
           )}
         </div>
       </div>
-      <BooksDataView data={booksData} />
+      <BooksDataView tableData={booksData} />
     </>
   );
 };

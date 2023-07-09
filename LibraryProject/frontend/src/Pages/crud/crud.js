@@ -16,7 +16,7 @@ let data = "Default";
 //    return data;
 //  };
 //jjkkjn
-export const fetchDataa = async () => {
+export const fetchDataa= async () => {
   try {
     const response = await fetch("http://localhost:5000/product");
     const result = await response.text();
@@ -28,15 +28,13 @@ export const fetchDataa = async () => {
 };
 
 // Same one using AXIOS
-export const fetchData = async (data) => {
-  const res = await axios
-    .post("http://localhost:5000/product", data)
-    .then((res) => {
-      console.log(res.data);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+export const fetchData = async () => {
+  try {
+    const response = await axios.get("http://localhost:5000/books");
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 //  // Post Method
