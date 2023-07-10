@@ -3,8 +3,9 @@ import { useEffect, useState } from "react";
 import Navbar from "../../Components/navBar/Navbar";
 import Librarian from "../librarian/Librarian";
 import { useNavigate, useParams } from "react-router-dom";
-import { fetchData } from "../crud/crud";
+import { fetchBookData } from "../crud/crud";
 import BooksDataView from "../../Components/booksDataView/BooksDataView";
+import RolesDataView from "../../Components/Roles/rolesView/RolesView";
 const AccessManager = (probs) => {
   const initialTableData = [
     {
@@ -20,17 +21,16 @@ const AccessManager = (probs) => {
   const [userRole, setUserRole] = useState(false);
   const [appUser, setAppUser] = useState("default");
   const [booksData, setBooksData] = useState(initialTableData);
+  const [url, setUrl] = useState("http://localhost:5000/books/");
+  const booksUrl = "http://localhost:5000/books/";
+  const userRoleUrl = "http://localhost:5000/";
 
-  const showHideBook = () => setBooks(!books);
+  const showHideBook = (e) => {
+    setBooks(!books);
+  };
   const showHideUserRole = () => {
     setUserRole(!userRole);
-  };
-  const hideBook = () => {
-    setBooks(false);
-  };
-
-  const handleClick = async () => {
-    hideBook();
+    setUrl(userRoleUrl);
   };
 
   useEffect(() => {
@@ -38,9 +38,10 @@ const AccessManager = (probs) => {
 
     const FetchData = async () => {
       try {
-        const result = await fetchData();
+        const result = await fetchBookData(url);
         setBooksData(result);
-        // console.log("result from use effect " + result);
+        // const Uresult = await fetchBookData(userRoleUrl);
+        // setUserRoleData(Uresult);
       } catch (error) {
         console.log(error);
       }
@@ -58,7 +59,7 @@ const AccessManager = (probs) => {
             <button
               className="btn btn-primary m-5 p-3"
               onClick={(e) => {
-                showHideBook();
+                showHideBook(e);
               }}
             >
               Books
@@ -80,7 +81,7 @@ const AccessManager = (probs) => {
         </div>
       </div>
       {books && <BooksDataView tableData={booksData} />}
-      {userRole && <BooksDataView tableData={booksData} />}
+      {userRole && <RolesDataView tableData={booksData} />}
     </>
   );
 };

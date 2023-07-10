@@ -2,35 +2,15 @@ import React from "react";
 import axios from "axios";
 // Fetch data from API
 //http://localhost:5000/books
-let booksUrl = " http://localhost:5000/product";
+let booksUrl = "http://localhost:5000/books";
+let userRolesUrl="http://localhost:5000/useRoles"
 let data = "Default";
-//  export const fetchData = async () => {
-//    try {
-//      const response = await fetch(booksUrl).
-//then(data = await response.text()).then(console.log);
 
-//     // console.log(data);
-//    } catch (error) {
-//      console.log("Error:", error);
-//    }
-//    return data;
-//  };
-//jjkkjn
-export const fetchDataa= async () => {
-  try {
-    const response = await fetch("http://localhost:5000/product");
-    const result = await response.text();
-    return result;
-  } catch (error) {
-    console.error(error);
-    throw new Error("Error fetching data");
-  }
-};
 
 // Same one using AXIOS
-export const fetchData = async () => {
+export const fetchBookData = async (url) => {
   try {
-    const response = await axios.get("http://localhost:5000/books");
+    const response = await axios.get(url);
     return response.data;
   } catch (error) {
     console.error(error);
