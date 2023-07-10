@@ -13,54 +13,24 @@ const AccessManager = (probs) => {
       avalablity: true,
       lender: 0,
     },
-    {
-      id: 1,
-      name: "second one ",
-      avalablity: true,
-      lender: 0,
-    },
-    {
-      id: 3,
-      name: "third one one ",
-      avalablity: true,
-      lender: 0,
-    },
   ];
 
   const params = useParams();
+  const [books, setBooks] = useState(false);
+  const [userRole, setUserRole] = useState(false);
   const [appUser, setAppUser] = useState("default");
   const [booksData, setBooksData] = useState(initialTableData);
 
-  // const FetchBooksData = async () => {
-  //   let data = await fetchData();
-  //   console.log(data);
-  //   setBooksData(data);
-  // };
+  const showHideBook = () => setBooks(!books);
+  const showHideUserRole = () => {
+    setUserRole(!userRole);
+  };
+  const hideBook = () => {
+    setBooks(false);
+  };
+
   const handleClick = async () => {
-    //const data = await fetchData();
-    const data = [
-      {
-        id: 0,
-        name: "first one ",
-        avalablity: true,
-        lender: 0,
-      },
-      {
-        id: 1,
-        name: "second one ",
-        avalablity: true,
-        lender: 0,
-      },
-      {
-        id: 3,
-        name: "third one one ",
-        avalablity: true,
-        lender: 0,
-      },
-    ];
-    console.log("Data from button  \n" + data);
-    // setBooksData(data);
-    //console.log(data);
+    hideBook();
   };
 
   useEffect(() => {
@@ -70,48 +40,47 @@ const AccessManager = (probs) => {
       try {
         const result = await fetchData();
         setBooksData(result);
-        console.log("result from use effect " + result);
+        // console.log("result from use effect " + result);
       } catch (error) {
         console.log(error);
       }
     };
     FetchData();
-
-    // const FetchBooksData = async () => {
-    //   try {
-    //     let data = await fetchData();
-    //     console.log(data);
-    //     setBooksData(data);
-    //   } catch (error) {
-    //     console.error("Error fetching data:", error);
-    //   }
-    //   FetchBooksData();
-    // };
   }, []);
-  //probs.role
+
   return (
     <>
       <Navbar appUser={appUser} />
       <div className="row">
         <div className="col">
           {/* Features for Librarian */}
-          {appUser == "librarian" && <Librarian />}
+          {appUser == "librarian" && (
+            <button
+              className="btn btn-primary m-5 p-3"
+              onClick={(e) => {
+                showHideBook();
+              }}
+            >
+              Books
+            </button>
+          )}
           {/* <Librarian /> */}
         </div>
         <div className="col">
           {appUser == "librarian" && (
             <button
               onClick={() => {
-                handleClick();
+                showHideUserRole();
               }}
-              className="btn btn-primary m-5"
+              className="btn btn-primary m-5 p-3"
             >
-              Edit User Roles
+              User Roles
             </button>
           )}
         </div>
       </div>
-      <BooksDataView tableData={booksData} />
+      {books && <BooksDataView tableData={booksData} />}
+      {userRole && <BooksDataView tableData={booksData} />}
     </>
   );
 };
