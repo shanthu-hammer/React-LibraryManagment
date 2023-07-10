@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Table from "react-bootstrap/Table";
+import BooksEdit from "../booksEdit/BooksEdit";
+import Librarian from "../../Pages/librarian/Librarian";
 const BooksDataView = (probs) => {
   const tableData = probs.tableData;
-
-  console.log(tableData);
 
   const arrayChecker = (data) => {
     if (Array.isArray(data)) {
@@ -33,28 +33,27 @@ const BooksDataView = (probs) => {
   return (
     <>
       <Table striped bordered hover>
-        {/* {console.log(probs.tableData)} */}
-        <thead>
+        <thead className="text-center">
           <tr>
             <th>Name</th>
             <th>ID</th>
             <th>Availability</th>
             <th>Lender</th>
-            <th>Edit</th>            
+            <th>Edit</th>
           </tr>
         </thead>
         <tbody>
           {tableData.map((data) => (
-            <tr >
+            <tr className="text-center">
               <td>{data.name}</td>
               <td>{data.id}</td>
               <td>{data.lender}</td>
-              <td>{data.availability? "Available":"Not Available" }</td>
-             
+              <td>{data.availability ? "Available" : "Not Available"}</td>
+
               <td>
-                <button type="button" class="btn btn-dark">
-                  Edit
-                </button>
+                <BooksEdit EditData={data} />
+                {/* <button className="btn btn-primary m-1">Edit</button> */}
+                {/* <Librarian /> */}
               </td>
             </tr>
           ))}
@@ -65,8 +64,3 @@ const BooksDataView = (probs) => {
 };
 
 export default BooksDataView;
-{
-  /* <td>{item.availability ? "Available" : "Not Available"}</td> */
-}
-
-//for js 
