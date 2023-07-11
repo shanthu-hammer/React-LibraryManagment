@@ -27,20 +27,20 @@
       "name":"AAA",
       "password":"12345",
       "message":"",
-      "Penality":100 
+      "penality":100 
     },
     {
       "id":1,
       "name":"BBB",
       "password":"12345",
       "message":"",
-      "Penality":100 
+      "penality":100 
     },  {
       "id":2,
       "name":"CCC",
       "password":"12345",
       "message":"",
-      "Penality":100 
+      "penality":100 
     }
   ]
 }

@@ -8,18 +8,16 @@ const RolesDataView = (probs) => {
   return (
     <>
       <Table striped bordered hover>
-      <thead className="text-center">
+        <thead className="text-center">
           <tr>
             <th>User Roles Data</th>
-            
           </tr>
         </thead>
         <thead className="text-center">
           <tr>
             <th>Name</th>
             <th>ID</th>
-            <th>Availability</th>
-            <th>Lender</th>
+            <th>Penality</th>
             <th>Edit</th>
           </tr>
         </thead>
@@ -28,8 +26,7 @@ const RolesDataView = (probs) => {
             <tr className="text-center">
               <td>{data.name}</td>
               <td>{data.id}</td>
-              <td>{data.lender}</td>
-              <td>{data.availability ? "Available" : "Not Available"}</td>
+              <td>{data.penality}</td>
 
               <td>
                 <BooksEdit EditData={data} />

@@ -15,38 +15,41 @@ const AccessManager = (probs) => {
       lender: 0,
     },
   ];
-
+  const booksUrl = "http://localhost:5000/books/";
+  const userRoleUrl = "http://localhost:5000/useRoles";
   const params = useParams();
   const [books, setBooks] = useState(false);
   const [userRole, setUserRole] = useState(false);
   const [appUser, setAppUser] = useState("default");
   const [booksData, setBooksData] = useState(initialTableData);
-  const [url, setUrl] = useState("http://localhost:5000/books/");
-  const booksUrl = "http://localhost:5000/books/";
-  const userRoleUrl = "http://localhost:5000/";
+  const [userRoleData, setUserRoleData] = useState(initialTableData);
 
-  const showHideBook = (e) => {
-    setBooks(!books);
-  };
-  const showHideUserRole = () => {
-    setUserRole(!userRole);
-    setUrl(userRoleUrl);
-  };
+  const showHideBook = (e) => setBooks(!books);
+  const showHideUserRole = () => setUserRole(!userRole);
 
   useEffect(() => {
     setAppUser(params.userName);
-
-    const FetchData = async () => {
+    //Fetch data from Books API
+    const FetchDataB = async () => {
       try {
-        const result = await fetchBookData(url);
+        const result = await fetchBookData(booksUrl);
         setBooksData(result);
-        // const Uresult = await fetchBookData(userRoleUrl);
-        // setUserRoleData(Uresult);
       } catch (error) {
         console.log(error);
       }
     };
-    FetchData();
+    FetchDataB();
+    //Fetch data from UserRole API
+    const FetchDataU = async () => {
+      try {
+        const result = await fetchBookData(userRoleUrl);
+        console.log(result);
+        setUserRoleData(result);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    FetchDataU();
   }, []);
 
   return (
@@ -81,7 +84,7 @@ const AccessManager = (probs) => {
         </div>
       </div>
       {books && <BooksDataView tableData={booksData} />}
-      {userRole && <RolesDataView tableData={booksData} />}
+      {userRole && <RolesDataView tableData={userRoleData} />}
     </>
   );
 };
