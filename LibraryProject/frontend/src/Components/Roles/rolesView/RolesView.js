@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Table from "react-bootstrap/Table";
-import BooksEdit from "../../booksEdit/BooksEdit";
+import BooksEdit from "../../books/booksEdit/BooksEdit";
 import RolesEdit from "../rolesEdit/RolesEdit";
 const RolesDataView = (probs) => {
   const tableData = probs.tableData;

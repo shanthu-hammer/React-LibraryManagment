@@ -4,7 +4,7 @@ import Navbar from "../../Components/navBar/Navbar";
 import Librarian from "../librarian/Librarian";
 import { useNavigate, useParams } from "react-router-dom";
 import { fetchBookData } from "../crud/crud";
-import BooksDataView from "../../Components/booksDataView/BooksDataView";
+import BooksDataView from "../../Components/books/booksDataView/BooksDataView";
 import RolesDataView from "../../Components/Roles/rolesView/RolesView";
 const AccessManager = (probs) => {
   const initialTableData = [
@@ -29,7 +29,7 @@ const AccessManager = (probs) => {
 
   useEffect(() => {
     setAppUser(params.userName);
-    //Fetch data from Books API
+    //this function ftches the books data from API
     const FetchDataB = async () => {
       try {
         const result = await fetchBookData(booksUrl);
@@ -39,7 +39,7 @@ const AccessManager = (probs) => {
       }
     };
     FetchDataB();
-    //Fetch data from UserRole API
+    //this function ftches the userRoles data from API
     const FetchDataU = async () => {
       try {
         const result = await fetchBookData(userRoleUrl);

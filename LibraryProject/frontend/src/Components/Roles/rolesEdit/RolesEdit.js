@@ -18,7 +18,6 @@ const RolesEdit = (probs) => {
       <Button className="btn btn-primary p-1" onClick={handleShow}>
         Edit
       </Button>
-      
 
       <Modal show={show} onHide={handleClose} centered>
         <Modal.Header closeButton>
@@ -38,7 +37,7 @@ const RolesEdit = (probs) => {
             <Form.Group controlId="formEmail">
               <Form.Label>ID</Form.Label>
               <Form.Control
-                type="email"
+                type="text"
                 placeholder="Enter your email"
                 value={probs.EditData.id}
               />
@@ -46,7 +45,7 @@ const RolesEdit = (probs) => {
             <Form.Group controlId="formEmail">
               <Form.Label>Message</Form.Label>
               <Form.Control
-                type="email"
+                type="text"
                 placeholder="Enter your email"
                 value={probs.EditData.message}
               />
@@ -54,7 +53,7 @@ const RolesEdit = (probs) => {
             <Form.Group controlId="formEmail">
               <Form.Label>Penality</Form.Label>
               <Form.Control
-                type="email"
+                type="text"
                 placeholder="Enter your email"
                 value={probs.EditData.penality}
               />

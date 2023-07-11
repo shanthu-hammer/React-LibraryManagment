@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Table from "react-bootstrap/Table";
 import BooksEdit from "../booksEdit/BooksEdit";
-import Librarian from "../../Pages/librarian/Librarian";
+import Librarian from "../../../Pages/librarian/Librarian";
 const BooksDataView = (probs) => {
   const tableData = probs.tableData;
 
