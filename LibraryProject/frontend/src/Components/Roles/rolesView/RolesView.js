@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Table from "react-bootstrap/Table";
 import BooksEdit from "../../booksEdit/BooksEdit";
-
+import RolesEdit from "../rolesEdit/RolesEdit";
 const RolesDataView = (probs) => {
   const tableData = probs.tableData;
 
@@ -29,9 +29,7 @@ const RolesDataView = (probs) => {
               <td>{data.penality}</td>
 
               <td>
-                <BooksEdit EditData={data} />
-                {/* <button className="btn btn-primary m-1">Edit</button> */}
-                {/* <Librarian /> */}
+                <RolesEdit EditData={data} />
               </td>
             </tr>
           ))}
