@@ -43,7 +43,7 @@ const AccessManager = (probs) => {
     const FetchDataU = async () => {
       try {
         const result = await fetchBookData(userRoleUrl);
-        console.log(result);
+        //console.log(result);
         setUserRoleData(result);
       } catch (error) {
         console.log(error);

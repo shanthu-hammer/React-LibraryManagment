@@ -1,15 +1,24 @@
 import React, { useState } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
-
+import BooksUpdate from "../booksUpdate/BooksUpdate";
 const BooksEdit = (probs) => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // Add your form submission logic here "\{^_^}/"
-    //\{^_^}/
+  let initialValue = probs.EditData;
+
+  const [formdata, setFormdata] = useState(initialValue);
+
+  const HandleEvent = (e) => {
+    setFormdata({ ...formdata, [e.target.name]: e.target.value });
+    //console.log(formdata);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    BooksUpdate(formdata);
+    //  \{^_^}/
     handleClose();
   };
 
@@ -24,48 +33,66 @@ const BooksEdit = (probs) => {
           <Modal.Title>Edit Books Form</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form onSubmit={handleSubmit}>
+          <Form>
             <Form.Group controlId="formName">
               <Form.Label>Name</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Enter your name"
-                value={probs.EditData.name}
+                placeholder="Book name"
+                value={formdata.name}
+                name="name"
+                onChange={(e) => {
+                  HandleEvent(e);
+                }}
               />
             </Form.Group>
 
-            <Form.Group controlId="formEmail">
+            <Form.Group>
               <Form.Label>ID</Form.Label>
               <Form.Control
-                type="email"
-                placeholder="Enter your email"
-                value={probs.EditData.id}
+                type="number"
+                placeholder="Enter your ID"
+                value={formdata.id}
+                name="id"
+                onChange={(e) => {
+                  HandleEvent(e);
+                }}
               />
             </Form.Group>
-            <Form.Group controlId="formEmail">
+            <Form.Group>
               <Form.Label>Availability</Form.Label>
               <Form.Control
-                type="email"
-                placeholder="Enter your email"
+                type="text"
+                placeholder="Book's Availability "
                 value={probs.EditData.availability}
               />
             </Form.Group>
-            <Form.Group controlId="formEmail">
+            <Form.Group>
               <Form.Label>Lender</Form.Label>
               <Form.Control
-                type="email"
-                placeholder="Enter your email"
+                type="number"
+                placeholder=" Lenders Id"
                 value={probs.EditData.lender}
               />
             </Form.Group>
 
-            <Button variant="primary mt-3" type="submit">
+            <Button
+              variant="primary mt-3"
+              onClick={(e) => {
+                handleSubmit(e);
+              }}
+            >
               Submit
             </Button>
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button
+            variant="secondary"
+            onClick={() => {
+              handleClose();
+            }}
+          >
             Close
           </Button>
         </Modal.Footer>

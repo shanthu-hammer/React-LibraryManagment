@@ -17,30 +17,83 @@
       "name": "Bulls",
       "availability": false,
       "lender": 1
-    }
-    
-  ],
-
-  "useRoles":[
-    {
-      "id":0,
-      "name":"AAA",
-      "password":"12345",
-      "message":"",
-      "penality":100 
     },
     {
-      "id":1,
-      "name":"BBB",
-      "password":"12345",
-      "message":"",
-      "penality":100 
-    },  {
-      "id":2,
-      "name":"CCC",
-      "password":"12345",
-      "message":"",
-      "penality":100 
+      "name": "Naruto",
+      "availability": false,
+      "lender": 1,
+      "id": 3
+    },
+    {
+      "id": 4,
+      "name": "Bruto",
+      "availability": false,
+      "lender": 1
+    },
+    {
+      "name": "Ragnork",
+      "availability": true,
+      "lender": 1,
+      "id": 5
+    },
+    {
+      "name": "Ragnork",
+      "availability": true,
+      "lender": 1,
+      "id": 6
+    },
+    {
+      "name": "thor",
+      "availability": true,
+      "lender": 1,
+      "id": 7
+    },
+    {
+      "name": "thor",
+      "availability": true,
+      "lender": 1,
+      "id": 8
+    },
+    {
+      "name": "Games",
+      "availability": true,
+      "lender": 1,
+      "id": 9
+    },
+    {
+      "name": "Games",
+      "availability": true,
+      "lender": 1,
+      "id": 10
+    },
+    {
+      "name": "shanthu",
+      "availability": true,
+      "lender": 1,
+      "id": "11"
+    }
+  ],
+  "useRoles": [
+    {
+      "id": 0,
+      "name": "AAA",
+      "password": "12345",
+      "message": "",
+      "penality": 100
+    },
+    {
+      "id": 1,
+      "name": "BBB",
+      "password": "12345",
+      "message": "",
+      "penality": 100
+    },
+    {
+      "id": 2,
+      "name": "CCC",
+      "password": "12345",
+      "message": "",
+      "penality": 100
     }
   ]
 }
