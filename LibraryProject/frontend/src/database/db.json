@@ -75,13 +75,6 @@
       "password": "12345",
       "message": "",
       "penality": 100
-    },
-    {
-      "id": 2,
-      "name": "CCC",
-      "password": "12345",
-      "message": "",
-      "penality": 100
     }
   ]
 }

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Table from "react-bootstrap/Table";
 import BooksEdit from "../../books/booksEdit/BooksEdit";
 import RolesEdit from "../rolesEdit/RolesEdit";
+import RolesDelete from "../rolesDelete/RolesDelete";
 const RolesDataView = (probs) => {
   const tableData = probs.tableData;
 
@@ -19,6 +20,7 @@ const RolesDataView = (probs) => {
             <th>ID</th>
             <th>Penality</th>
             <th>Edit</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>
@@ -30,6 +32,9 @@ const RolesDataView = (probs) => {
 
               <td>
                 <RolesEdit EditData={data} />
+              </td>
+              <td>
+                <RolesDelete EditData={data} />
               </td>
             </tr>
           ))}
