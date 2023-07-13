@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Table from "react-bootstrap/Table";
 import BooksEdit from "../booksEdit/BooksEdit";
 import Librarian from "../../../Pages/librarian/Librarian";
+import BooksDelete from "../booksDelete/BooksDelete";
 const BooksDataView = (probs) => {
   const tableData = probs.tableData;
 
@@ -40,6 +41,7 @@ const BooksDataView = (probs) => {
             <th>Availability</th>
             <th>Lender</th>
             <th>Edit</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>
@@ -54,6 +56,10 @@ const BooksDataView = (probs) => {
                 <BooksEdit EditData={data} />
                 {/* <button className="btn btn-primary m-1">Edit</button> */}
                 {/* <Librarian /> */}
+              </td>
+              <td>
+                <BooksDelete EditData={data} />
+               
               </td>
             </tr>
           ))}

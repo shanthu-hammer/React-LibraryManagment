@@ -20,6 +20,16 @@ export const PostData = async (url, data) => {
   try {
     const response = await axios.post(url, data);
     return "posted successully \n  {^_^}/";
-  } catch {}
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const DeleteData = async (url, id) => {
+  try {
+    const response = await axios.delete(url + "/" + id);
+  } catch (error) {
+    console.log(error);
+  }
 };
 

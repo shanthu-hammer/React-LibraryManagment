@@ -22,6 +22,10 @@ const BooksEdit = (probs) => {
     handleClose();
   };
 
+  const handleDelete=()=>{
+
+  }
+
   return (
     <div>
       <Button className="btn btn-primary p-1" onClick={handleShow}>
@@ -77,13 +81,21 @@ const BooksEdit = (probs) => {
             </Form.Group>
 
             <Button
-              variant="primary mt-3"
+              variant="primary m-3 "
               onClick={(e) => {
                 handleSubmit(e);
               }}
             >
               Submit
             </Button>
+            {/* <Button
+              variant="danger m-3"
+              onClick={(e) => {
+                handleDelete(e);
+              }}
+            >
+              Delete
+            </Button> */}
           </Form>
         </Modal.Body>
         <Modal.Footer>

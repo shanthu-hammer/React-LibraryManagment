@@ -59,18 +59,6 @@
       "availability": true,
       "lender": 1,
       "id": 9
-    },
-    {
-      "name": "Games",
-      "availability": true,
-      "lender": 1,
-      "id": 10
-    },
-    {
-      "name": "shanthu",
-      "availability": true,
-      "lender": 1,
-      "id": "11"
     }
   ],
   "useRoles": [
