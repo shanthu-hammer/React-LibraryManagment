@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
-import BooksUpdate from "../booksUpdate/BooksUpdate";
 import { DeleteData } from "../../../Pages/crud/crud";
 const BooksDelete = (probs) => {
   const [show, setShow] = useState(false);

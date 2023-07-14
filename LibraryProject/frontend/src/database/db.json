@@ -59,6 +59,10 @@
       "availability": true,
       "lender": 1,
       "id": 9
+    },
+    {
+      "id": "10",
+      "name": "Shippuden"
     }
   ],
   "useRoles": [

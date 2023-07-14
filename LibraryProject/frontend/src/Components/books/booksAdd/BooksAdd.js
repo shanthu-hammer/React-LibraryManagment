@@ -17,7 +17,7 @@ const BooksAdd = (probs) => {
   const handleSubmit = (e) => {
     let url = "http://localhost:5000/books";
     e.preventDefault();
-    //PostData(url, formdata);
+    PostData(url, formdata);
     console.log(probs.NewBookID);
   };
 
@@ -34,7 +34,7 @@ const BooksAdd = (probs) => {
           Add Books
         </Button>
       }
-      <Modal show={show} onHide={ShowHide}>
+      <Modal show={show} onHide={ShowHide}centered>
         <Modal.Header>Add Books Form</Modal.Header>
         <Modal.Body>
           <Form>
@@ -90,6 +90,9 @@ const BooksAdd = (probs) => {
             </Button> */}
           </Form>
         </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary">Close</Button>
+        </Modal.Footer>
       </Modal>
     </>
   );
