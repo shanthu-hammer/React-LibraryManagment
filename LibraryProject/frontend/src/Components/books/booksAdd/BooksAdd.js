@@ -1,39 +1,41 @@
 import React, { useState } from "react";
+import BooksDataView from "../booksDataView/BooksDataView";
 import { Button, Modal, Form } from "react-bootstrap";
-import BooksUpdate from "../booksUpdate/BooksUpdate";
-const BooksEdit = (probs) => {
+import { PostData } from "../../../Pages/crud/crud";
+const BooksAdd = (probs) => {
+  let a = {
+    id: probs.NewBookID,
+  };
   const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const [formdata, setFormdata] = useState(a);
 
-  let initialValue = probs.EditData;
-
-  const [formdata, setFormdata] = useState(initialValue);
-
+  const ShowHide = () => setShow(!show);
 
   const HandleEvent = (e) => {
     setFormdata({ ...formdata, [e.target.name]: e.target.value });
-    //console.log(formdata);
   };
-
   const handleSubmit = (e) => {
+    let url = "http://localhost:5000/books";
     e.preventDefault();
-    BooksUpdate(formdata);
-    //  \{^_^}/
-    handleClose();
+    //PostData(url, formdata);
+    console.log(probs.NewBookID);
   };
 
-  
   return (
-    <div>
-      <Button className="btn btn-primary p-1" onClick={handleShow}>
-        Edit
-      </Button>
-
-      <Modal show={show} onHide={handleClose} centered>
-        <Modal.Header closeButton>
-          <Modal.Title>Edit Books Form</Modal.Title>
-        </Modal.Header>
+    <>
+      {
+        <Button
+          onClick={(e) => {
+            ShowHide(e);
+          }}
+          className="btn btn-warning m-5 p-3"
+        >
+          {" "}
+          Add Books
+        </Button>
+      }
+      <Modal show={show} onHide={ShowHide}>
+        <Modal.Header>Add Books Form</Modal.Header>
         <Modal.Body>
           <Form>
             <Form.Group controlId="formName">
@@ -41,7 +43,7 @@ const BooksEdit = (probs) => {
               <Form.Control
                 type="text"
                 placeholder="Book name"
-                value={formdata.name}
+                // value={formdata.name}
                 name="name"
                 onChange={(e) => {
                   HandleEvent(e);
@@ -63,19 +65,11 @@ const BooksEdit = (probs) => {
             </Form.Group>
             <Form.Group>
               <Form.Label>Availability</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Book's Availability "
-                value={probs.EditData.availability}
-              />
+              <Form.Control type="text" placeholder="Book's Availability " />
             </Form.Group>
             <Form.Group>
               <Form.Label>Lender</Form.Label>
-              <Form.Control
-                type="number"
-                placeholder=" Lenders Id"
-                value={probs.EditData.lender}
-              />
+              <Form.Control type="number" placeholder=" Lenders Id" />
             </Form.Group>
 
             <Button
@@ -96,19 +90,8 @@ const BooksEdit = (probs) => {
             </Button> */}
           </Form>
         </Modal.Body>
-        <Modal.Footer>
-          <Button
-            variant="secondary"
-            onClick={() => {
-              handleClose();
-            }}
-          >
-            Close
-          </Button>
-        </Modal.Footer>
       </Modal>
-    </div>
+    </>
   );
 };
-
-export default BooksEdit;
+export default BooksAdd;

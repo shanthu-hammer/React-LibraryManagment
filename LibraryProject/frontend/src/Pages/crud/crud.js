@@ -6,7 +6,7 @@ let uurl = "http://localhost:5000/books";
 let userRolesUrl = "http://localhost:5000/useRoles";
 let data = "Default";
 
-// Same one using AXIOS
+// Fetch data from API
 export const fetchBookData = async (url) => {
   try {
     const response = await axios.get(url);
@@ -24,6 +24,12 @@ export const PostData = async (url, data) => {
     console.log(error);
   }
 };
+
+export const UpdateData=async(url,data)=>{
+  try{
+    const response=await axios.put(url + "/" + data.id,data)
+  }catch{}
+}
 
 export const DeleteData = async (url, id) => {
   try {

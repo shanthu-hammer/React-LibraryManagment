@@ -1,5 +1,5 @@
 import React from "react";
-import { PostData } from "../../../Pages/crud/crud";
+import { PostData,UpdateData } from "../../../Pages/crud/crud";
 const BooksUpdate = (probs) => {
   console.log(probs);
   let BooksData = probs; //value
@@ -8,7 +8,7 @@ const BooksUpdate = (probs) => {
   let url = "http://localhost:5000/books";
   let data = probs;
   try {
-    let response = PostData(url, data);
+    let response = UpdateData(url, data);
   } catch (error) {
     console.log(error);
   }

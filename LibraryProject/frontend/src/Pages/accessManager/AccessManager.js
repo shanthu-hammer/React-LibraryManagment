@@ -4,8 +4,10 @@ import Navbar from "../../Components/navBar/Navbar";
 import Librarian from "../librarian/Librarian";
 import { useNavigate, useParams } from "react-router-dom";
 import { fetchBookData } from "../crud/crud";
+
 import BooksDataView from "../../Components/books/booksDataView/BooksDataView";
 import RolesDataView from "../../Components/Roles/rolesView/RolesView";
+import BooksAdd from "../../Components/books/booksAdd/BooksAdd";
 const AccessManager = (probs) => {
   const initialTableData = [
     {
@@ -15,6 +17,8 @@ const AccessManager = (probs) => {
       lender: 0,
     },
   ];
+
+  let TotalAvilableBooksCount;
   const booksUrl = "http://localhost:5000/books/";
   const userRoleUrl = "http://localhost:5000/useRoles";
   const params = useParams();
@@ -23,6 +27,7 @@ const AccessManager = (probs) => {
   const [appUser, setAppUser] = useState("default");
   const [booksData, setBooksData] = useState(initialTableData);
   const [userRoleData, setUserRoleData] = useState(initialTableData);
+  
 
   const showHideBook = (e) => setBooks(!books);
   const showHideUserRole = () => setUserRole(!userRole);
@@ -34,6 +39,9 @@ const AccessManager = (probs) => {
       try {
         const result = await fetchBookData(booksUrl);
         setBooksData(result);
+
+        TotalAvilableBooksCount = result.length;
+        console.log(TotalAvilableBooksCount);
       } catch (error) {
         console.log(error);
       }
@@ -81,6 +89,10 @@ const AccessManager = (probs) => {
               User Roles
             </button>
           )}
+        </div>
+        <div className="col">
+          <BooksAdd NewBookID={booksData.length} requirement="bookadd" />
+          {/* {TotalAvilableBooksCount} */}
         </div>
       </div>
       {books && <BooksDataView tableData={booksData} />}
