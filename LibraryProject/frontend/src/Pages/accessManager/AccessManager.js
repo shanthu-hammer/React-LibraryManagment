@@ -16,7 +16,7 @@ const AccessManager = (probs) => {
     },
   ];
 
-  let TotalAvilableBooksCount;
+  
   const booksUrl = "http://localhost:5000/books/";
   const userRoleUrl = "http://localhost:5000/useRoles";
   const params = useParams();
@@ -25,7 +25,6 @@ const AccessManager = (probs) => {
   const [appUser, setAppUser] = useState("default");
   const [booksData, setBooksData] = useState(initialTableData);
   const [userRoleData, setUserRoleData] = useState(initialTableData);
-  
 
   const showHideBook = (e) => setBooks(!books);
   const showHideUserRole = () => setUserRole(!userRole);
@@ -38,7 +37,7 @@ const AccessManager = (probs) => {
         const result = await fetchBookData(booksUrl);
         setBooksData(result);
 
-        TotalAvilableBooksCount = result.length;
+        let TotalAvilableBooksCount = result.length;
         console.log(TotalAvilableBooksCount);
       } catch (error) {
         console.log(error);
@@ -89,7 +88,11 @@ const AccessManager = (probs) => {
           )}
         </div>
         <div className="col">
-          <BooksAdd NewBookID={booksData.length} requirement="bookadd" />
+          <BooksAdd
+            // NewBookID={TotalAvilableBooksCount}
+            tableData={booksData}
+            requirement="bookadd"
+          />
           {/* {TotalAvilableBooksCount} */}
         </div>
       </div>

@@ -1,13 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import BooksDataView from "../booksDataView/BooksDataView";
 import { Button, Modal, Form } from "react-bootstrap";
 import { PostData } from "../../../Pages/crud/crud";
 const BooksAdd = (probs) => {
+  //console.log(probs.tableData);
   let a = {
-    id: probs.NewBookID,
+    id: probs.tableData.length + 1,
+    name: "first one ",
+    avalablity: true,
+    lender: 0,
   };
   const [show, setShow] = useState(false);
   const [formdata, setFormdata] = useState(a);
+
+  // useEffect(() => {
+  //   setFormdata({ ...formdata, [formdata.id]: probs.tableData.length + 1 });
+  // }, [probs.tableData.length]);
+
+  useEffect(() => {
+    setFormdata((prevFormdata) => ({
+      ...prevFormdata,
+      id: probs.tableData.length + 1,
+    })); //het an explination from chatgpt
+  }, [probs.tableData.length]);
 
   const ShowHide = () => setShow(!show);
 
@@ -18,7 +33,7 @@ const BooksAdd = (probs) => {
     let url = "http://localhost:5000/books";
     e.preventDefault();
     PostData(url, formdata);
-    console.log(probs.NewBookID);
+    console.log(formdata);
   };
 
   return (
@@ -34,7 +49,7 @@ const BooksAdd = (probs) => {
           Add Books
         </Button>
       }
-      <Modal show={show} onHide={ShowHide}centered>
+      <Modal show={show} onHide={ShowHide} centered>
         <Modal.Header>Add Books Form</Modal.Header>
         <Modal.Body>
           <Form>
@@ -91,7 +106,14 @@ const BooksAdd = (probs) => {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary">Close</Button>
+          <Button
+            onClick={() => {
+              ShowHide();
+            }}
+            variant="secondary"
+          >
+            Close
+          </Button>
         </Modal.Footer>
       </Modal>
     </>

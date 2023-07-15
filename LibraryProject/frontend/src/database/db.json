@@ -63,6 +63,22 @@
     {
       "id": "10",
       "name": "Shippuden"
+    },
+    {
+      "id": 12,
+      "name": "Marvel"
+    },
+    {
+      "name": "newGames",
+      "availability": true,
+      "lender": 1,
+      "id": 13
+    },
+    {
+      "id": 14,
+      "name": "hhhh",
+      "avalablity": true,
+      "lender": 0
     }
   ],
   "useRoles": [
