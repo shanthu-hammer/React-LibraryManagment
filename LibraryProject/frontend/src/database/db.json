@@ -111,6 +111,16 @@
       "penality": 20,
       "role": "user",
       "email": "123@email.com"
+    },
+    {
+      "id": 4,
+      "name": "DDD",
+      "avalablity": true,
+      "lender": 0,
+      "email": "DDD@Email.com",
+      "password": "123456",
+      "message": "All books Returned ",
+      "penality": "0"
     }
   ]
 }

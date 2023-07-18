@@ -6,6 +6,7 @@ import { fetchBookData } from "../crud/crud";
 import BooksDataView from "../../Components/books/booksDataView/BooksDataView";
 import RolesDataView from "../../Components/Roles/rolesView/RolesView";
 import BooksAdd from "../../Components/books/booksAdd/BooksAdd";
+import RolesAdd from "../../Components/Roles/rolesAdd/RolesAdd";
 const AccessManager = (probs) => {
   const initialTableData = [
     {
@@ -16,7 +17,6 @@ const AccessManager = (probs) => {
     },
   ];
 
-  
   const booksUrl = "http://localhost:5000/books/";
   const userRoleUrl = "http://localhost:5000/useRoles";
   const params = useParams();
@@ -92,6 +92,17 @@ const AccessManager = (probs) => {
             <BooksAdd
               // NewBookID={TotalAvilableBooksCount}
               tableData={booksData}
+              requirement="bookadd"
+            />
+          )}
+
+          {/* {TotalAvilableBooksCount} */}
+        </div>
+        <div className="col">
+          {appUser == "librarian" && (
+            <RolesAdd
+              // NewBookID={TotalAvilableBooksCount}
+              tableData={userRoleData}
               requirement="bookadd"
             />
           )}
