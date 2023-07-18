@@ -88,11 +88,14 @@ const AccessManager = (probs) => {
           )}
         </div>
         <div className="col">
-          <BooksAdd
-            // NewBookID={TotalAvilableBooksCount}
-            tableData={booksData}
-            requirement="bookadd"
-          />
+          {appUser == "librarian" && (
+            <BooksAdd
+              // NewBookID={TotalAvilableBooksCount}
+              tableData={booksData}
+              requirement="bookadd"
+            />
+          )}
+
           {/* {TotalAvilableBooksCount} */}
         </div>
       </div>

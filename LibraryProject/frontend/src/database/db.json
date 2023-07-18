@@ -8,9 +8,12 @@
     },
     {
       "id": 1,
-      "name": "Golden",
-      "availability": true,
-      "lender": 1
+      "name": "AAAEEE",
+      "password": "12345",
+      "email": "123@email.com",
+      "message": "Return the book om time",
+      "penality": 100,
+      "role": "member"
     },
     {
       "id": 2,
@@ -83,18 +86,31 @@
   ],
   "useRoles": [
     {
-      "id": 0,
-      "name": "AAA",
+      "id": 1,
+      "name": "AAAEEE",
       "password": "12345",
-      "message": "",
-      "penality": 100
+      "email": "123@email.com",
+      "message": "Return the book om time",
+      "penality": 100,
+      "role": "member"
     },
     {
-      "id": 1,
+      "id": 2,
       "name": "BBB",
       "password": "12345",
+      "message": "Return the penality",
+      "penality": 100,
+      "role": "member",
+      "email": "123@email.com"
+    },
+    {
+      "id": 3,
+      "name": "ccc",
+      "password": "12345",
       "message": "",
-      "penality": 100
+      "penality": 20,
+      "role": "user",
+      "email": "123@email.com"
     }
   ]
 }

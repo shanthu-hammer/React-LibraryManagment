@@ -1,5 +1,5 @@
 import React from "react";
-import { PostData,UpdateData } from "../../../Pages/crud/crud";
+import {UpdateData } from "../../../Pages/crud/crud";
 const BooksUpdate = (probs) => {
   console.log(probs);
   let BooksData = probs; //value
