@@ -13,10 +13,6 @@ const RolesAdd = (probs) => {
   const [show, setShow] = useState(false);
   const [formdata, setFormdata] = useState(a);
 
-  // useEffect(() => {
-  //   setFormdata({ ...formdata, [formdata.id]: probs.tableData.length + 1 });
-  // }, [probs.tableData.length]);
-
   useEffect(() => {
     setFormdata((prevFormdata) => ({
       ...prevFormdata,
@@ -50,7 +46,7 @@ const RolesAdd = (probs) => {
         </Button>
       }
       <Modal show={show} onHide={ShowHide} centered>
-        <Modal.Header>Add Books Form</Modal.Header>
+        <Modal.Header>Add Users Form</Modal.Header>
         <Modal.Body>
           <Form>
             <Form.Group controlId="formName">
@@ -58,7 +54,6 @@ const RolesAdd = (probs) => {
               <Form.Control
                 type="text"
                 placeholder="User name"
-               
                 name="name"
                 onChange={(e) => {
                   HandleEvent(e);
@@ -83,7 +78,6 @@ const RolesAdd = (probs) => {
               <Form.Control
                 type="email"
                 placeholder="User Email "
-               
                 name="email"
                 onChange={(e) => {
                   HandleEvent(e);
@@ -95,7 +89,6 @@ const RolesAdd = (probs) => {
               <Form.Control
                 type="text"
                 placeholder="User Password"
-               
                 name="password"
                 onChange={(e) => {
                   HandleEvent(e);
@@ -107,7 +100,6 @@ const RolesAdd = (probs) => {
               <Form.Control
                 type="text"
                 placeholder="User Message"
-               
                 name="message"
                 onChange={(e) => {
                   HandleEvent(e);
@@ -119,14 +111,13 @@ const RolesAdd = (probs) => {
               <Form.Control
                 type="number"
                 placeholder="Penality Amount"
-               
                 name="penality"
                 onChange={(e) => {
                   HandleEvent(e);
                 }}
               />
             </Form.Group>
-            
+
             <Button
               variant="primary m-3 "
               onClick={(e) => {
@@ -135,7 +126,6 @@ const RolesAdd = (probs) => {
             >
               Submit
             </Button>
-           
           </Form>
         </Modal.Body>
         <Modal.Footer>

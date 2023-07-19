@@ -1,9 +1,21 @@
 Add Books //done 
 
-Add userRoles //
+Add userRoles ////Done
 
-Update functionality on Roles//working atm 
+Update functionality on Roles//Done
 
-open only one data view at a time BOOK OR userRoles
+open only one data view at a time BOOK OR userRoles// Done
+
+
+8. Memember Module - Memeber must have a access for search books.
+9. Member must have a access for a Borrow books and return books. 
+10. Member must be able see the books that he has already borrowed. 
+
+Members search box 
+books available 
+
+
+Borrowed books 
+list books where ID = members ID 
 
 

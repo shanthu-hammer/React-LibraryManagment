@@ -7,6 +7,7 @@ import BooksDataView from "../../Components/books/booksDataView/BooksDataView";
 import RolesDataView from "../../Components/Roles/rolesView/RolesView";
 import BooksAdd from "../../Components/books/booksAdd/BooksAdd";
 import RolesAdd from "../../Components/Roles/rolesAdd/RolesAdd";
+
 const AccessManager = (probs) => {
   const initialTableData = [
     {
@@ -14,6 +15,7 @@ const AccessManager = (probs) => {
       name: "first one ",
       avalablity: true,
       lender: 0,
+      message: "default",
     },
   ];
 
@@ -26,8 +28,14 @@ const AccessManager = (probs) => {
   const [booksData, setBooksData] = useState(initialTableData);
   const [userRoleData, setUserRoleData] = useState(initialTableData);
 
-  const showHideBook = (e) => setBooks(!books);
-  const showHideUserRole = () => setUserRole(!userRole);
+  const showHideBook = () => {
+    setBooks(!books);
+    setUserRole(false);
+  };
+  const showHideUserRole = () => {
+    setUserRole(!userRole);
+    setBooks(false);
+  };
 
   useEffect(() => {
     setAppUser(params.userName);
@@ -50,6 +58,7 @@ const AccessManager = (probs) => {
         const result = await fetchBookData(userRoleUrl);
         //console.log(result);
         setUserRoleData(result);
+        console.log(result.name);
       } catch (error) {
         console.log(error);
       }
@@ -59,7 +68,16 @@ const AccessManager = (probs) => {
 
   return (
     <>
-      <Navbar appUser={appUser} />
+      {(() => {
+        if (appUser == "librarian") {
+          return <Navbar appUser={appUser} />;
+        } else if (appUser == "member") {
+          return <Navbar appUser={appUser} message={userRoleData.message} />;
+        } else {
+          return <Navbar appUser={appUser} />;
+        }
+      })()}
+
       <div className="row">
         <div className="col">
           {/* Features for Librarian */}

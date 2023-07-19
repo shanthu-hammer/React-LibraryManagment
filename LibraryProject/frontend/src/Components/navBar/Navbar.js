@@ -1,12 +1,19 @@
-//import Nav from 'react-bootstrap/Nav';
-import React from 'react';
-import { Nav} from 'react-bootstrap';
+import React, { useState } from "react";
+import { Nav } from "react-bootstrap";
 import "../navBar/Navbar.css";
 function Navbar(probs) {
- 
+  console.log("user: " + probs.appUser);
+  console.log("message: " + probs.message);
   const Handleclick = (e) => {
     console.log(e.target.name);
   };
+
+  let initialValue = " default ";
+  const [app_User, setApp_User] = useState(initialValue);
+  const updateUser = () => {
+    setApp_User(probs.appUser);
+  };
+  //updateUser()
   return (
     <div className="navbar-custom">
       <Nav
@@ -16,7 +23,7 @@ function Navbar(probs) {
       >
         <Nav.Item>
           <Nav.Link
-            name="user "
+            name="user"
             onClick={(e) => {
               Handleclick(e);
             }}
@@ -47,7 +54,8 @@ function Navbar(probs) {
             Books
           </Nav.Link>
         </Nav.Item>
-        <Nav.Item>
+        {probs.appUser!='librarian'&&<Nav.Item>
+          
           <Nav.Link
             name="Messages "
             onClick={(e) => {
@@ -57,12 +65,9 @@ function Navbar(probs) {
           >
             Messages
           </Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link eventKey="link-3" disabled>
-            Disabled
-          </Nav.Link>
-        </Nav.Item>
+        </Nav.Item>}
+        
+        
       </Nav>
     </div>
   );
