@@ -1,20 +1,59 @@
-import React, { useState } from "react";
-import Modal, { Button,ModalBody, ModalHeader } from "react-bootstrap";
-const MessagePopUp = (probs) => {
-const [message,setMessage] = useState("Default message ")
+import React, { useEffect, useState } from "react";
+import { Button, Modal, Form } from "react-bootstrap";
+import { fetchBookData } from "../../Pages/crud/crud";
 
+const MessagePopUp = (probs) => {
+  let id = 3;
+  //make this ID  be fetched from probs 
+  //UrL try to use that sys 
+  let initial = ["Default message", "Default message "];
+  const [message, setMessage] = useState(initial);
+  const [show, setShow] = useState(false);
+
+  let userURL = "http://localhost:5000/useRoles";
+  const showHideSwap = () => {
+    setShow(!show);
+  };
+  useEffect(() => {
+    const Fetchmessage = async () => {
+      try {
+        let response = await fetchBookData(userURL);
+        console.log(response);
+        setMessage([response[id].name, response[id].message]);
+      } catch (error) {
+        alert(error);
+      }
+    };
+    Fetchmessage();
+  }, []);
 
   return (
     <>
+      <button
+        className="text-button"
+        onClick={() => {
+          showHideSwap();
+        }}
+      >
+        Messages
+      </button>
 
-<Button>
+      <Modal show={show} onHide={showHideSwap}>
+        <Modal.Header>{message[0]}'messages</Modal.Header>
 
-</Button>
-      {console.log(probs.data.message)}
-      <Modal>
-        <ModalHeader>{Probs.data.names}'messages</ModalHeader>
-        <ModalBody> {probs.data.message}</ModalBody>
+        <Modal.Body> {message}</Modal.Body>
+        <Modal.Footer>
+          <Button
+            onClick={() => {
+              showHideSwap();
+            }}
+          >
+            close
+          </Button>
+        </Modal.Footer>
       </Modal>
+
+      {/* {console.log(probs.data.message)} */}
     </>
   );
 };

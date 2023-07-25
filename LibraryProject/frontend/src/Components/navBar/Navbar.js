@@ -1,17 +1,22 @@
 import React, { useState } from "react";
 import { Nav } from "react-bootstrap";
 import "../navBar/Navbar.css";
+import MessagePopUp from "../messagePopUp/MessagePopUp";
+
 function Navbar(probs) {
   console.log("user: " + probs.appUser);
   console.log("message: " + probs.message);
+  //const [showHide, setShowHide] = useState(false);
   const Handleclick = (e) => {
     console.log(e.target.name);
   };
 
+  const showMsg = () => {};
+
   let initialValue = " default ";
   const [app_User, setApp_User] = useState(initialValue);
   const updateUser = () => {
-    setApp_User(probs.appUser);
+   // setApp_User(probs.appUser);
   };
   //updateUser()
   return (
@@ -54,20 +59,12 @@ function Navbar(probs) {
             Books
           </Nav.Link>
         </Nav.Item>
-        {probs.appUser!='librarian'&&<Nav.Item>
-          
-          <Nav.Link
-            name="Messages "
-            onClick={(e) => {
-              Handleclick(e);
-            }}
-            eventKey="link-2"
-          >
-            Messages
-          </Nav.Link>
-        </Nav.Item>}
-        
-        
+        {probs.appUser != "librarian" && (
+          <Nav.Item>
+           
+            <MessagePopUp />
+          </Nav.Item>
+        )}
       </Nav>
     </div>
   );
