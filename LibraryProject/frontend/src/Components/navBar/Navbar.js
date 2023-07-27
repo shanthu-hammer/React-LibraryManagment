@@ -22,7 +22,7 @@ function Navbar(probs) {
   return (
     <div className="navbar-custom">
       <Nav
-        className="bg-dark p-3"
+        className="bg-dark p-1"
         activeKey="/home"
         onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}
       >
@@ -61,7 +61,6 @@ function Navbar(probs) {
         </Nav.Item>
         {probs.appUser != "librarian" && (
           <Nav.Item>
-           
             <MessagePopUp />
           </Nav.Item>
         )}
