@@ -21,6 +21,7 @@ const RolesDataView = (probs) => {
             <th>Penality</th>
             <th>Edit</th>
             <th>Delete</th>
+            <th>Message</th>
           </tr>
         </thead>
         <tbody>
@@ -29,6 +30,7 @@ const RolesDataView = (probs) => {
               <td>{data.name}</td>
               <td>{data.id}</td>
               <td>{data.penality}</td>
+              <td>{data.message}</td>
 
               <td>
                 <RolesEdit EditData={data} />

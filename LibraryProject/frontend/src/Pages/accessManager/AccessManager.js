@@ -7,6 +7,7 @@ import BooksDataView from "../../Components/books/booksDataView/BooksDataView";
 import RolesDataView from "../../Components/Roles/rolesView/RolesView";
 import BooksAdd from "../../Components/books/booksAdd/BooksAdd";
 import RolesAdd from "../../Components/Roles/rolesAdd/RolesAdd";
+import Search from "../../Components/search/Search";
 
 const AccessManager = (probs) => {
   const initialTableData = [
@@ -80,8 +81,8 @@ const AccessManager = (probs) => {
 
       <div className="row">
         <div className="col">
-          {/* Features for Librarian */}
-          {appUser == "librarian" && (
+          {/*// prettier-ignore */}
+          {(appUser === "librarian" || "member") && (
             <button
               className="btn btn-primary m-5 p-3"
               onClick={(e) => {
@@ -107,11 +108,7 @@ const AccessManager = (probs) => {
         </div>
         <div className="col">
           {appUser == "librarian" && (
-            <BooksAdd
-              // NewBookID={TotalAvilableBooksCount}
-              tableData={booksData}
-              requirement="bookadd"
-            />
+            <BooksAdd tableData={booksData} requirement="bookadd" />
           )}
 
           {/* {TotalAvilableBooksCount} */}
@@ -130,6 +127,7 @@ const AccessManager = (probs) => {
       </div>
       {books && <BooksDataView tableData={booksData} />}
       {userRole && <RolesDataView tableData={userRoleData} />}
+      <Search booksData={booksData} />
     </>
   );
 };

@@ -62,6 +62,9 @@ const RolesEdit = (probs) => {
                 placeholder="Enter your email"
                 value={formdata.email}
                 name="email"
+                onChange={(e) => {
+                  HandleEvent(e);
+                }}
               />
             </Form.Group>
             <Form.Group controlId="formmessage">
@@ -70,6 +73,10 @@ const RolesEdit = (probs) => {
                 type="text"
                 placeholder=" User's message here"
                 value={formdata.message}
+                name="message"
+                onChange={(e) => {
+                  HandleEvent(e);
+                }}
               />
             </Form.Group>
             <Form.Group controlId="formEmail">
@@ -78,6 +85,9 @@ const RolesEdit = (probs) => {
                 type="text"
                 placeholder="Enter your email"
                 value={formdata.penality}
+                onChange={(e) => {
+                  HandleEvent(e);
+                }}
               />
             </Form.Group>
             <Form.Group controlId="forRole">

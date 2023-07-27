@@ -19,7 +19,7 @@ const MessagePopUp = (probs) => {
     const Fetchmessage = async () => {
       try {
         let response = await fetchBookData(userURL);
-        console.log(response);
+        //console.log(response);
         setMessage([response[id].name, response[id].message]);
       } catch (error) {
         alert(error);

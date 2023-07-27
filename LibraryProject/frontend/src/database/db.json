@@ -8,12 +8,9 @@
     },
     {
       "id": 1,
-      "name": "AAAEEE",
-      "password": "12345",
-      "email": "123@email.com",
-      "message": "Return the book om time",
-      "penality": 100,
-      "role": "member"
+      "name": "BullsCLASS",
+      "availability": false,
+      "lender": 1
     },
     {
       "id": 2,
@@ -107,7 +104,7 @@
       "id": 3,
       "name": "ccc",
       "password": "12345",
-      "message": "",
+      "message": "please visit the url ",
       "penality": 20,
       "role": "user",
       "email": "123@email.com"
@@ -119,8 +116,9 @@
       "lender": 0,
       "email": "DDD@Email.com",
       "password": "123456",
-      "message": "All books Returned ",
-      "penality": "0"
+      "message": "All books must be returned ",
+      "penality": "0",
+      "role": "member"
     }
   ]
 }

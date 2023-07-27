@@ -4,8 +4,8 @@ import "../navBar/Navbar.css";
 import MessagePopUp from "../messagePopUp/MessagePopUp";
 
 function Navbar(probs) {
-  console.log("user: " + probs.appUser);
-  console.log("message: " + probs.message);
+  //console.log("user: " + probs.appUser);
+  // console.log("message: " + probs.message);
   //const [showHide, setShowHide] = useState(false);
   const Handleclick = (e) => {
     console.log(e.target.name);
@@ -16,7 +16,7 @@ function Navbar(probs) {
   let initialValue = " default ";
   const [app_User, setApp_User] = useState(initialValue);
   const updateUser = () => {
-   // setApp_User(probs.appUser);
+    // setApp_User(probs.appUser);
   };
   //updateUser()
   return (
