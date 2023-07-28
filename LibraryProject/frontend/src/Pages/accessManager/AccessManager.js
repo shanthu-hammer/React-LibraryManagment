@@ -127,7 +127,11 @@ const AccessManager = (probs) => {
       </div>
       {books && <BooksDataView tableData={booksData} appUser={appUser} />}
       {userRole && <RolesDataView tableData={userRoleData} />}
-      <Search booksData={booksData} />
+      {appUser == "member" && (
+        <>
+          <Search booksData={booksData} />
+        </>
+      )}
     </>
   );
 };

@@ -6,12 +6,17 @@ const Search = (probs) => {
   let tempArray = [];
   const [searchWord, setSearchWord] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+  const [resultsView, setResultsView] = useState(false);
+  const handleSHowHide = () => {
+    setResultsView(!resultsView);
+  };
   let arr = probs.booksData;
 
   const handleChange = (e) => {
     setSearchWord(e.target.value);
   };
   const handleSumit = (e) => {
+    handleSHowHide();
     e.preventDefault();
     console.log("search word is " + searchWord);
 
@@ -25,11 +30,10 @@ const Search = (probs) => {
 
   return (
     <>
-      <div className=" ">
+      <div className="container">
         <div className="row m-5">
           <div className="col mx-5">
             <input
-              placeholder="default"
               onChange={(e) => {
                 handleChange(e);
               }}
@@ -37,6 +41,7 @@ const Search = (probs) => {
           </div>
           <div className="col ">
             <Button
+              className="btn-primary"
               onClick={(e) => {
                 handleSumit(e);
               }}
@@ -46,7 +51,7 @@ const Search = (probs) => {
           </div>
         </div>
         {console.log(searchResults)}
-        <SearchResults data={searchResults} />
+        {resultsView && <SearchResults data={searchResults} />}
       </div>
     </>
   );

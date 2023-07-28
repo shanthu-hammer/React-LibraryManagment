@@ -1,0 +1,8 @@
+.tableHead {
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+}
+
+.container{
+    box-sizing: content-box;
+}
