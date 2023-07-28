@@ -79,6 +79,12 @@
       "name": "hhhh",
       "avalablity": true,
       "lender": 0
+    },
+    {
+      "id": 15,
+      "name": "Bruto",
+      "availability": false,
+      "lender": 1
     }
   ],
   "useRoles": [
