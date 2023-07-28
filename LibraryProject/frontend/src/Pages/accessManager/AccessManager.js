@@ -125,7 +125,7 @@ const AccessManager = (probs) => {
           {/* {TotalAvilableBooksCount} */}
         </div>
       </div>
-      {books && <BooksDataView tableData={booksData} />}
+      {books && <BooksDataView tableData={booksData} appUser={appUser} />}
       {userRole && <RolesDataView tableData={userRoleData} />}
       <Search booksData={booksData} />
     </>

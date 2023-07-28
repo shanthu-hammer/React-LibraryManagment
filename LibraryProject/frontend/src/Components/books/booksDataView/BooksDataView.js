@@ -4,6 +4,7 @@ import BooksEdit from "../booksEdit/BooksEdit";
 import Librarian from "../../../Pages/librarian/Librarian";
 import BooksDelete from "../booksDelete/BooksDelete";
 const BooksDataView = (probs) => {
+  //alert(probs.appUser);
   const tableData = probs.tableData;
 
   const arrayChecker = (data) => {
@@ -22,12 +23,6 @@ const BooksDataView = (probs) => {
     } else {
       console.log("Data is not an array");
       console.log(data);
-      // Handle the data as a different type
-      // return (
-      //   <>
-      //     <h2>Data is NOTT array</h2>
-      //   </>
-      // );
     }
   };
   //arrayChecker(tableData);
@@ -40,8 +35,12 @@ const BooksDataView = (probs) => {
             <th>ID</th>
             <th>Availability</th>
             <th>Lender</th>
-            <th>Edit</th>
-            <th>Delete</th>
+            {probs.appUser == "librarian" && (
+              <>
+                <th>Edit</th>
+                <th>Delete</th>
+              </>
+            )}
           </tr>
         </thead>
         <tbody>
@@ -49,18 +48,20 @@ const BooksDataView = (probs) => {
             <tr className="text-center">
               <td>{data.name}</td>
               <td>{data.id}</td>
-              <td>{data.lender}</td>
-              <td>{data.availability ? "Available" : "Not Available"}</td>
 
-              <td>
-                <BooksEdit EditData={data} />
-                {/* <button className="btn btn-primary m-1">Edit</button> */}
-                {/* <Librarian /> */}
-              </td>
-              <td>
-                <BooksDelete EditData={data} />
-               
-              </td>
+              <td>{data.availability ? "Available" : "Not Available"}</td>
+              <td>{data.lender}</td>
+
+              {probs.appUser == "librarian" && (
+                <>
+                  <td>
+                    <BooksEdit EditData={data} />
+                  </td>
+                  <td>
+                    <BooksDelete EditData={data} />
+                  </td>
+                </>
+              )}
             </tr>
           ))}
         </tbody>
