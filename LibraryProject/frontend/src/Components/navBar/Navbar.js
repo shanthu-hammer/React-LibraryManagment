@@ -69,7 +69,7 @@ function Navbar(probs) {
          </>
        )}
 
-       {probs.appUser != "librarian" && (
+       {probs.appUser == "member" && (
          <Nav.Item>
            <MessagePopUp />
          </Nav.Item>
