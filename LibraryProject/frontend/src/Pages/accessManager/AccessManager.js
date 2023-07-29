@@ -20,8 +20,9 @@ const AccessManager = (probs) => {
     },
   ];
 
-  const booksUrl = "http://localhost:5000/books/";
-  const userRoleUrl = "http://localhost:5000/useRoles";
+  const booksUrl = process.env.REACT_APP_API_URL_BOOK;
+  const userRoleUrl = process.env.REACT_APP_API_URL_USERROLE;
+  
   const params = useParams();
   const [books, setBooks] = useState(false);
   const [userRole, setUserRole] = useState(false);
@@ -45,9 +46,6 @@ const AccessManager = (probs) => {
       try {
         const result = await fetchBookData(booksUrl);
         setBooksData(result);
-
-        let TotalAvilableBooksCount = result.length;
-        console.log(TotalAvilableBooksCount);
       } catch (error) {
         console.log(error);
       }
