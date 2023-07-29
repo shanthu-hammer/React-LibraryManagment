@@ -1,0 +1,10 @@
+.parentContainer {
+   
+    display: flex;
+    justify-content: center;
+    /* Horizontally center */
+    align-items: center;
+    /* Vertically center */
+    height: 50vh;
+    position: relative;
+}

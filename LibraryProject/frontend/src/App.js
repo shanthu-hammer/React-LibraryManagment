@@ -10,6 +10,7 @@ import AccessManager from "./Pages/accessManager/AccessManager";
 import { Button } from "react-bootstrap";
 import "../src/App.css";
 import Parent from "./Pages/testing/parent";
+import Login from "./Pages/authentication/Login/Login";
 //npx json-server --watch src/database/store.json --port 5000
 function App() {
   const [role, setRole] = useState("default");
@@ -37,7 +38,7 @@ function App() {
               element={<AccessManager role={role} />}
             />
             <Route path="/test" element={<Parent role={role} />} />
-            <Route path="/login" element={<Parent role={role} />} />
+            <Route path="/login" element={<Login />} />
           </Routes>
         </Router>
       </div>
