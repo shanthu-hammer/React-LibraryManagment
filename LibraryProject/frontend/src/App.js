@@ -37,6 +37,7 @@ function App() {
               element={<AccessManager role={role} />}
             />
             <Route path="/test" element={<Parent role={role} />} />
+            <Route path="/login" element={<Parent role={role} />} />
           </Routes>
         </Router>
       </div>

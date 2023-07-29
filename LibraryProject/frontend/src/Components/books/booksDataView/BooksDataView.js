@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Table from "react-bootstrap/Table";
 import BooksEdit from "../booksEdit/BooksEdit";
-import Librarian from "../../../Pages/librarian/Librarian";
 import BooksDelete from "../booksDelete/BooksDelete";
 import "../booksDataView/booksDataView.css";
 const BooksDataView = (probs) => {

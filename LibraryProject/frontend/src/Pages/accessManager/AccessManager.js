@@ -22,7 +22,7 @@ const AccessManager = (probs) => {
 
   const booksUrl = process.env.REACT_APP_API_URL_BOOK;
   const userRoleUrl = process.env.REACT_APP_API_URL_USERROLE;
-  
+
   const params = useParams();
   const [books, setBooks] = useState(false);
   const [userRole, setUserRole] = useState(false);
@@ -41,7 +41,7 @@ const AccessManager = (probs) => {
 
   useEffect(() => {
     setAppUser(params.userName);
-    //this function ftches the books data from API
+    //this function fetches the books data from API
     const FetchDataB = async () => {
       try {
         const result = await fetchBookData(booksUrl);
@@ -55,7 +55,6 @@ const AccessManager = (probs) => {
     const FetchDataU = async () => {
       try {
         const result = await fetchBookData(userRoleUrl);
-        //console.log(result);
         setUserRoleData(result);
         console.log(result.name);
       } catch (error) {
@@ -69,41 +68,27 @@ const AccessManager = (probs) => {
     <>
       {(() => {
         if (appUser == "librarian") {
-          return <Navbar appUser={appUser} />;
+          return (
+            <Navbar
+              appUser={appUser}
+              showHideBook={showHideBook}
+              showHideUserRole={showHideUserRole}
+            />
+          );
         } else if (appUser == "member") {
-          return <Navbar appUser={appUser} message={userRoleData.message} />;
+          return (
+            <Navbar
+              appUser={appUser}
+              message={userRoleData.message}
+              showHideBook={showHideBook}
+            />
+          );
         } else {
-          return <Navbar appUser={appUser} />;
+          return <Navbar appUser={appUser} showHideBook={showHideBook} />;
         }
       })()}
 
       <div className="row">
-        <div className="col">
-          {/*// prettier-ignore */}
-          {(appUser === "librarian" || "member") && (
-            <button
-              className="btn btn-primary m-5 p-3"
-              onClick={(e) => {
-                showHideBook(e);
-              }}
-            >
-              Books
-            </button>
-          )}
-          {/* <Librarian /> */}
-        </div>
-        <div className="col">
-          {appUser == "librarian" && (
-            <button
-              onClick={() => {
-                showHideUserRole();
-              }}
-              className="btn btn-primary m-5 p-3"
-            >
-              User Roles
-            </button>
-          )}
-        </div>
         <div className="col">
           {appUser == "librarian" && (
             <BooksAdd tableData={booksData} requirement="bookadd" />
