@@ -90,37 +90,35 @@
   "useRoles": [
     {
       "id": 1,
-      "name": "AAAEEE",
+      "name": "admin",
       "password": "12345",
-      "email": "123@email.com",
-      "message": "Return the book om time",
-      "penality": 100,
-      "role": "member"
+      "email": "admin@email.com",           
+      "role": "librarian"
     },
     {
       "id": 2,
-      "name": "BBB",
-      "password": "12345",
+      "name": "santhu",
+      "password": "aaaa",
       "message": "Return the penality",
-      "penality": 100,
       "role": "member",
-      "email": "123@email.com"
+      "penality": 100,     
+      "email": "santhu@email.com"
     },
     {
       "id": 3,
-      "name": "ccc",
+      "name": "vijeya",
       "password": "12345",
       "message": "please visit the url ",
       "penality": 20,
-      "role": "user",
-      "email": "123@email.com"
+      "role": "member",
+      "email": "vijeya@email.com"
     },
     {
       "id": 4,
-      "name": "DDD",
+      "name": "kevin",
       "avalablity": true,
       "lender": 0,
-      "email": "DDD@Email.com",
+      "email": "kevin@email.com",
       "password": "123456",
       "message": "All books must be returned ",
       "penality": "0",

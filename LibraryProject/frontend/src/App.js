@@ -14,8 +14,11 @@ import Login from "./Pages/authentication/Login/Login";
 //npx json-server --watch src/database/store.json --port 5000
 function App() {
   const [role, setRole] = useState("default");
+  const [userInfo, setUserInfo] = useState();
   const callBackRoleSelector = (data) => {
-    setRole(data);
+    setRole(data.role);
+    setUserInfo(data);
+    console.log(userInfo);
   };
 
   return (
@@ -30,6 +33,14 @@ function App() {
               element={
                 <div className="d-flex align-items-center justify-content-center">
                   <RoleSelector callBackRoleSelector={callBackRoleSelector} />
+                </div>
+              }
+            />
+            <Route
+              path="/base"
+              element={
+                <div className="d-flex align-items-center justify-content-center">
+                  <Login callBackRoleSelector={callBackRoleSelector} />
                 </div>
               }
             />
