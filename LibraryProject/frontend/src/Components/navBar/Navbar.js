@@ -71,7 +71,7 @@ function Navbar(probs) {
 
        {probs.appUser == "member" && (
          <Nav.Item>
-           <MessagePopUp />
+           <MessagePopUp userInfo={probs.userInfo} />
          </Nav.Item>
        )}
      </Nav>

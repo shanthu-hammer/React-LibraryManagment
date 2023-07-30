@@ -10,6 +10,7 @@ import RolesAdd from "../../Components/Roles/rolesAdd/RolesAdd";
 import Search from "../../Components/search/Search";
 
 const AccessManager = (probs) => {
+  console.log(probs.userInfo);
   const initialTableData = [
     {
       id: 0,
@@ -81,6 +82,7 @@ const AccessManager = (probs) => {
               appUser={appUser}
               message={userRoleData.message}
               showHideBook={showHideBook}
+              userInfo={probs.userInfo}
             />
           );
         } else {

@@ -17,6 +17,7 @@ function App() {
   const [userInfo, setUserInfo] = useState();
   const callBackRoleSelector = (data) => {
     setRole(data.role);
+    console.log(data);
     setUserInfo(data);
     console.log(userInfo);
   };
@@ -40,13 +41,16 @@ function App() {
               path="/base"
               element={
                 <div className="d-flex align-items-center justify-content-center">
-                  <Login callBackRoleSelector={callBackRoleSelector} />
+                  <Login
+                    callBackRoleSelector={callBackRoleSelector}
+                    userInfo={userInfo}
+                  />
                 </div>
               }
             />
             <Route
               path="/dashboard/:userName"
-              element={<AccessManager role={role} />}
+              element={<AccessManager role={role} userInfo={userInfo} />}
             />
             <Route path="/test" element={<Parent role={role} />} />
             <Route path="/login" element={<Login />} />
