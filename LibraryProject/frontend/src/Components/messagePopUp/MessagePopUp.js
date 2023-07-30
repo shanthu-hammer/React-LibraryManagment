@@ -3,7 +3,7 @@ import { Button, Modal, Form } from "react-bootstrap";
 import { Nav } from "react-bootstrap";
 import "../../Components/messagePopUp/MessagePopUp.css";
 const MessagePopUp = (probs) => {
-  console.log(probs.userInfo);
+ 
 
   const [show, setShow] = useState(false);
 

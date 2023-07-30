@@ -10,7 +10,6 @@ import RolesAdd from "../../Components/Roles/rolesAdd/RolesAdd";
 import Search from "../../Components/search/Search";
 
 const AccessManager = (probs) => {
-  console.log(probs.userInfo);
   const initialTableData = [
     {
       id: 0,
@@ -71,6 +70,7 @@ const AccessManager = (probs) => {
         if (appUser == "librarian") {
           return (
             <Navbar
+              userInfo={probs.userInfo}
               appUser={appUser}
               showHideBook={showHideBook}
               showHideUserRole={showHideUserRole}
